@@ -1,25 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styling.css">
-    <title>Bilal Rauf</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilal Rauf — Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0d0d0f;
+    --surface:   #141416;
+    --border:    #232328;
+    --text:      #e8e8ec;
+    --muted:     #7a7a8a;
+    --accent:    #c8f060;
+    --accent2:   #60d0f0;
+    --tag-bg:    #1c1c22;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 60px;
+    background: rgba(13,13,15,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* hamburger */
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 2.5rem); }
+
+  section { padding: 100px 0 60px; }
+  section:first-of-type { padding-top: 160px; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: inline-block;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2.5rem;
+  }
+  .divider { width: 40px; height: 2px; background: var(--accent); margin-bottom: 2.5rem; }
+
+  /* ── HERO ── */
+  #hero { padding-top: 160px; padding-bottom: 80px; }
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+  .hero-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .hero-name span { color: var(--accent); }
+  .hero-title {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 1.4rem;
+    max-width: 520px;
+  }
+  .hero-intro {
+    font-size: 1rem;
+    color: var(--text);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent);
+    color: #0d0d0f;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.6rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+  }
+  .hero-cta:hover { opacity: 0.85; }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .skill-block {
+    background: var(--surface);
+    padding: 1.4rem 1.6rem;
+  }
+  .skill-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .skill-block p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── PROJECTS ── */
+  .projects-list { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--border); background: var(--border); border-radius: 4px; overflow: hidden; }
+  .project-card {
+    background: var(--surface);
+    padding: 1.6rem 1.8rem;
+    transition: background 0.2s;
+  }
+  .project-card:hover { background: #17171b; }
+  .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .project-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .project-link {
+    font-size: 0.78rem;
+    color: var(--accent2);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+  .project-link:hover { opacity: 0.7; }
+  .project-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.6; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.22rem 0.65rem;
+    border-radius: 2px;
+  }
+
+  /* ── EXPERIENCE ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-date { font-size: 0.78rem; color: var(--muted); padding-top: 0.15rem; letter-spacing: 0.02em; }
+  .timeline-body {}
+  .timeline-role {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+  .timeline-org { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.6rem; }
+  .timeline-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── EDUCATION ── */
+  .edu-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.8rem;
+    display: flex; flex-direction: column; gap: 0.3rem;
+  }
+  .edu-degree {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .edu-institution { font-size: 0.9rem; color: var(--accent); }
+  .edu-meta { font-size: 0.82rem; color: var(--muted); }
+
+  /* ── ACHIEVEMENTS ── */
+  .achievements-list { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 0.5rem; }
+  .achievement-item { display: flex; gap: 0.75rem; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+  .achievement-bullet { color: var(--accent); font-size: 0.85rem; margin-top: 0.22rem; flex-shrink: 0; }
+
+  /* ── CONTACT ── */
+  #contact { padding-bottom: 100px; }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1px; border: 1px solid var(--border); background: var(--border); border-radius: 4px; overflow: hidden; }
+  .contact-item {
+    background: var(--surface);
+    padding: 1.3rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0.3rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .contact-item:hover { background: #18181e; }
+  .contact-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .contact-value { font-size: 0.9rem; color: var(--text); word-break: break-all; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.8rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    font-size: 0.8rem; color: var(--muted);
+  }
+  footer strong { color: var(--text); font-family: 'Syne', sans-serif; font-weight: 700; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 620px) {
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; gap: 1.2rem; }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .timeline-date { order: 2; }
+  }
+</style>
 </head>
 <body>
-    <section id="main">
-        <h1>BILAL RAUF</h1>
-        <div class="seperator"></div>
-        <img src="main-img.jpg">
-        <div class="links" width="4080px">
-            <a href="soon.html" target="_blank">About</a>
-            <a href="soon.html" target="_blank">Stuff</a>
-            <a href="soon.html" target="_blank">Resume</a>
-            <a href="soon.html" target="_blank">Contact</a>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">BR</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Computer Science Student &amp; Full-Stack Developer</p>
+    <h1 class="hero-name">Bilal<br><span>Rauf.</span></h1>
+    <p class="hero-title">CS Sophomore · FAST-NUCES</p>
+    <p class="hero-intro">
+      Building production-grade software since my first year. My work spans full-stack web development, AI algorithms, and low-level systems programming. Seeking an internship where I can contribute technically from day one.
+    </p>
+    <a class="hero-cta" href="#contact">Get in touch →</a>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <span class="section-label">What I work with</span>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h3>Languages</h3>
+        <p>C++, Python, JavaScript, SQL, HTML / CSS</p>
+      </div>
+      <div class="skill-block">
+        <h3>Frameworks &amp; Libraries</h3>
+        <p>React.js, Next.js, FastAPI, TailwindCSS</p>
+      </div>
+      <div class="skill-block">
+        <h3>Tools &amp; Platforms</h3>
+        <p>Git, PostgreSQL, Firebase, Google Cloud, Oracle DB, Bash/CLI, Godot, VS Code</p>
+      </div>
+      <div class="skill-block">
+        <h3>Concepts</h3>
+        <p>DSA, OOP, REST APIs, JWT Auth, CSP / AI Algorithms</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <span class="section-label">Things I've built</span>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-list">
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Tidyline — Task &amp; Reminder App</span>
+          <a class="project-link" href="https://tidyline-web.vercel.app" target="_blank" rel="noopener">tidyline-web.vercel.app ↗</a>
         </div>
-    </section>
+        <p class="project-desc">
+          A deployed React task manager with deadline-aware auto-sorting. Tasks are automatically
+          bucketed into Today, This Week, Month, and Later categories. Built end-to-end with
+          component-based architecture using hooks.
+        </p>
+        <div class="tag-list">
+          <span class="tag">React</span>
+          <span class="tag">Vite</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Vercel</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">AI Puzzle Solvers</span>
+        </div>
+        <p class="project-desc">
+          CSP solvers for Sudoku and Tic-Tac-Toe using backtracking, constraint propagation,
+          and Alpha/Beta pruning — core AI techniques used in real-world planning systems.
+          Validated algorithm generalisation across two distinct problem domains.
+        </p>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">AI / CSP</span>
+          <span class="tag">Alpha-Beta Pruning</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Car Dealership Website</span>
+        </div>
+        <p class="project-desc">
+          Functional front-end web application featuring a car inventory browser and a fully
+          responsive UI, demonstrating practical JavaScript DOM manipulation.
+        </p>
+        <div class="tag-list">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <span class="section-label">Where I've worked</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <span class="timeline-date">Summer 2024</span>
+        <div class="timeline-body">
+          <div class="timeline-role">SQL &amp; Database Intern</div>
+          <div class="timeline-org">Solutionsloft</div>
+          <div class="timeline-desc">
+            Assisted in developing and testing client-facing software features. Gained exposure to
+            real project workflows, version control practices, and team-based development cycles.
+            Communicated directly with team members on task requirements — demonstrating
+            responsibility, initiative, and adaptability in a professional environment.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-date">2024</span>
+        <div class="timeline-body">
+          <div class="timeline-role">Event Photographer &amp; Coordinator</div>
+          <div class="timeline-org">Daira University Event (Volunteer)</div>
+          <div class="timeline-desc">
+            Managed end-to-end photography logistics for a large-scale university event,
+            coordinating with organisers and delivering edited media assets on deadline.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <span class="section-label">Academic background</span>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-list">
+
+      <div class="edu-card">
+        <div class="edu-degree">BS Computer Science</div>
+        <div class="edu-institution">FAST National University of Computer &amp; Emerging Sciences</div>
+        <div class="edu-meta">2024 – 2028 &nbsp;·&nbsp; CGPA 3.47 (4th Semester) &nbsp;·&nbsp; 🥉 Bronze Medal — Fall 2025</div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-degree">Intermediate Computer Science</div>
+        <div class="edu-institution">Forman Christian College</div>
+        <div class="edu-meta">Completed 2023</div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <span class="section-label">Highlights</span>
+      <div class="achievements-list">
+        <div class="achievement-item">
+          <span class="achievement-bullet">▸</span>
+          <span>Placed <strong style="color:var(--text)">5th</strong> at GDGoC's 24-hour AI Hackathon — collaborated under pressure to prototype a functional solution within a time-constrained environment.</span>
+        </div>
+        <div class="achievement-item">
+          <span class="achievement-bullet">▸</span>
+          <span>Awarded <strong style="color:var(--text)">Bronze Medal</strong> for academic excellence — Fall 2025 semester (top-tier GPA recognition).</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label">Let's talk</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:bilal.rauf2004@outlook.com">
+        <span class="contact-type">Email</span>
+        <span class="contact-value">bilal.rauf2004@outlook.com</span>
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/bilal-rauf" target="_blank" rel="noopener">
+        <span class="contact-type">LinkedIn</span>
+        <span class="contact-value">linkedin.com/in/bilal-rauf</span>
+      </a>
+      <a class="contact-item" href="https://github.com/bilal-rauf" target="_blank" rel="noopener">
+        <span class="contact-type">GitHub</span>
+        <span class="contact-value">github.com/bilal-rauf</span>
+      </a>
+      <a class="contact-item" href="tel:+923228474148">
+        <span class="contact-type">Phone</span>
+        <span class="contact-value">+92 322 847 4148</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span><strong>Bilal Rauf</strong> — Computer Science Student &amp; Full-Stack Developer</span>
+  <span>Karachi, Pakistan</span>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
 </body>
 </html>
