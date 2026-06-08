@@ -124,6 +124,12 @@
     line-height: 1.7;
     margin-bottom: 2rem;
   }
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
   .hero-cta {
     display: inline-flex; align-items: center; gap: 0.5rem;
     background: var(--accent);
@@ -139,6 +145,22 @@
     transition: opacity 0.2s;
   }
   .hero-cta:hover { opacity: 0.85; }
+  .hero-cta-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: transparent;
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.75rem 1.6rem;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .hero-cta-outline:hover { border-color: var(--accent); color: var(--accent); }
 
   /* ── SKILLS ── */
   .skills-grid {
@@ -180,6 +202,7 @@
     font-size: 1.05rem;
     color: var(--text);
   }
+  .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
   .project-link {
     font-size: 0.78rem;
     color: var(--accent2);
@@ -189,6 +212,15 @@
     transition: opacity 0.2s;
   }
   .project-link:hover { opacity: 0.7; }
+  .project-link-gh {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .project-link-gh:hover { color: var(--text); }
   .project-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.6; }
   .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .tag {
@@ -200,6 +232,11 @@
     letter-spacing: 0.05em;
     padding: 0.22rem 0.65rem;
     border-radius: 2px;
+  }
+  .tag-accent {
+    background: rgba(200, 240, 96, 0.08);
+    border: 1px solid rgba(200, 240, 96, 0.25);
+    color: var(--accent);
   }
 
   /* ── EXPERIENCE ── */
@@ -261,6 +298,39 @@
   .contact-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
   .contact-value { font-size: 0.9rem; color: var(--text); word-break: break-all; }
 
+  /* CV button in contact section */
+  .cv-banner {
+    margin-top: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .cv-banner-text { font-size: 0.9rem; color: var(--muted); }
+  .cv-banner-text strong { color: var(--text); }
+  .cv-btn {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    background: transparent;
+    color: var(--accent);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid var(--accent);
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .cv-btn:hover { background: var(--accent); color: #0d0d0f; }
+
   /* ── FOOTER ── */
   footer {
     border-top: 1px solid var(--border);
@@ -277,6 +347,7 @@
     .nav-toggle { display: flex; }
     .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .timeline-date { order: 2; }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -306,7 +377,10 @@
     <p class="hero-intro">
       Building production-grade software since my first year. My work spans full-stack web development, AI algorithms, and low-level systems programming. Seeking an internship where I can contribute technically from day one.
     </p>
-    <a class="hero-cta" href="#contact">Get in touch →</a>
+    <div class="hero-actions">
+      <a class="hero-cta" href="#contact">Get in touch →</a>
+      <a class="hero-cta-outline" href="https://drive.google.com/file/d/1JQyoqy_gO-bCQGVcJ5k-kLuNz_GWhxZf/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
+    </div>
   </div>
 </section>
 
@@ -322,15 +396,15 @@
       </div>
       <div class="skill-block">
         <h3>Frameworks &amp; Libraries</h3>
-        <p>React.js, Next.js, FastAPI, TailwindCSS</p>
+        <p>React.js, Next.js, FastAPI, Express.js, TailwindCSS</p>
       </div>
       <div class="skill-block">
         <h3>Tools &amp; Platforms</h3>
-        <p>Git, PostgreSQL, Firebase, Google Cloud, Oracle DB, Bash/CLI, Godot, VS Code</p>
+        <p>Git, MongoDB, PostgreSQL, Firebase, Google Cloud, Oracle DB, Bash/CLI, Godot, VS Code</p>
       </div>
       <div class="skill-block">
         <h3>Concepts</h3>
-        <p>DSA, OOP, REST APIs, JWT Auth, CSP / AI Algorithms</p>
+        <p>DSA, OOP, REST APIs, JWT Auth, RBAC, CSP / AI Algorithms, Swagger Docs</p>
       </div>
     </div>
   </div>
@@ -345,8 +419,53 @@
 
       <div class="project-card">
         <div class="project-header">
+          <span class="project-name">StackSense — AI Intelligence Layer</span>
+          <div class="project-links">
+            <a class="project-link" href="https://stack-sense.web.app" target="_blank" rel="noopener">stack-sense.web.app ↗</a>
+            <a class="project-link-gh" href="https://github.com/Build-with-AI-FAST-CFD-26/ai-hackathon-submission-bz-force" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <p class="project-desc">
+          AI-powered dashboard for technical founders that scans a live tech stack in real time — surfacing pricing changes, deprecation notices, and cost-saving opportunities ranked by dollar impact. Features a streaming terminal feed, impact-ranked alert cards with dollar counters, draggable detail windows, inline Gemini chat, and a Cmd+K command palette. Built and placed 5th at the GDG on Campus Build with AI Hackathon 2026.
+        </p>
+        <div class="tag-list">
+          <span class="tag tag-accent">🏆 5th Place — Hackathon</span>
+          <span class="tag">React 18</span>
+          <span class="tag">Gemini API</span>
+          <span class="tag">Streaming SSE</span>
+          <span class="tag">Firebase Hosting</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Vite</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">TaskFlow — Full-Stack Task Platform</span>
+          <div class="project-links">
+            <a class="project-link-gh" href="https://github.com/bilal-rauf-dev/taskflow-api" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <p class="project-desc">
+          Production-ready MERN-stack task management platform with JWT authentication, role-based access control (admin / user), full task CRUD, and Swagger UI API docs. Backend is architected for horizontal scaling behind a reverse proxy, with Redis and MongoDB Atlas as documented next steps. Includes a Postman collection and seed script for instant local setup.
+        </p>
+        <div class="tag-list">
+          <span class="tag">Node.js</span>
+          <span class="tag">Express.js</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">React</span>
+          <span class="tag">TailwindCSS</span>
+          <span class="tag">JWT / RBAC</span>
+          <span class="tag">Swagger</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
           <span class="project-name">Tidyline — Task &amp; Reminder App</span>
-          <a class="project-link" href="https://tidyline-web.vercel.app" target="_blank" rel="noopener">tidyline-web.vercel.app ↗</a>
+          <div class="project-links">
+            <a class="project-link" href="https://tidyline-web.vercel.app" target="_blank" rel="noopener">tidyline-web.vercel.app ↗</a>
+          </div>
         </div>
         <p class="project-desc">
           A deployed React task manager with deadline-aware auto-sorting. Tasks are automatically
@@ -493,13 +612,20 @@
         <span class="contact-value">+92 322 847 4148</span>
       </a>
     </div>
+    <div class="cv-banner">
+      <p class="cv-banner-text"><strong>Want a quick overview?</strong> Download my CV for a concise summary of my skills, projects, and experience.</p>
+      <a class="cv-btn" href="https://drive.google.com/file/d/1JQyoqy_gO-bCQGVcJ5k-kLuNz_GWhxZf/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <span><strong>Bilal Rauf</strong> — Computer Science Student &amp; Full-Stack Developer</span>
-  <span>Karachi, Pakistan</span>
+  <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+    <span>Lahore, Pakistan</span>
+    <a href="https://drive.google.com/file/d/1JQyoqy_gO-bCQGVcJ5k-kLuNz_GWhxZf/view?usp=sharing" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">View CV ↗</a>
+  </div>
 </footer>
 
 <script>
