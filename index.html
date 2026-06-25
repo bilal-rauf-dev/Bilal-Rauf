@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bilal Rauf — Portfolio</title>
+<title>Bilal Rauf — AI &amp; Full-Stack Developer</title>
+<meta name="description" content="Bilal Rauf — AI &amp; Full-Stack Developer. Building applied LLM products with Gemini, automation pipelines, and production web apps. CS Sophomore at FAST-NUCES.">
+<meta property="og:title" content="Bilal Rauf — AI &amp; Full-Stack Developer">
+<meta property="og:description" content="Building AI-powered and full-stack applications — applied LLM products with Gemini, automation pipelines, and production web apps.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bilal-rauf-dev.github.io/Bilal-Rauf/">
+<meta name="theme-color" content="#0d0d0f">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230d0d0f'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='14' font-weight='bold' fill='%23c8f060' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -124,12 +131,7 @@
     line-height: 1.7;
     margin-bottom: 2rem;
   }
-  .hero-actions {
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
   .hero-cta {
     display: inline-flex; align-items: center; gap: 0.5rem;
     background: var(--accent);
@@ -147,7 +149,7 @@
   .hero-cta:hover { opacity: 0.85; }
   .hero-cta-outline {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    background: transparent;
+    border: 1px solid var(--border);
     color: var(--text);
     font-family: 'Syne', sans-serif;
     font-weight: 700;
@@ -157,7 +159,6 @@
     padding: 0.75rem 1.6rem;
     text-decoration: none;
     border-radius: 2px;
-    border: 1px solid var(--border);
     transition: border-color 0.2s, color 0.2s;
   }
   .hero-cta-outline:hover { border-color: var(--accent); color: var(--accent); }
@@ -188,21 +189,42 @@
   .skill-block p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
   /* ── PROJECTS ── */
-  .projects-list { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--border); background: var(--border); border-radius: 4px; overflow: hidden; }
+  .projects-list {
+    display: flex; flex-direction: column; gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .project-group-header {
+    background: var(--bg);
+    padding: 0.6rem 1.8rem;
+  }
+  .project-group-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
   .project-card {
     background: var(--surface);
     padding: 1.6rem 1.8rem;
     transition: background 0.2s;
   }
   .project-card:hover { background: #17171b; }
-  .project-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap; }
+  .project-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 1rem; margin-bottom: 0.6rem; flex-wrap: wrap;
+  }
   .project-name {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
     font-size: 1.05rem;
     color: var(--text);
   }
-  .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+  .project-links { display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center; }
   .project-link {
     font-size: 0.78rem;
     color: var(--accent2);
@@ -220,7 +242,7 @@
     white-space: nowrap;
     transition: color 0.2s;
   }
-  .project-link-gh:hover { color: var(--text); }
+  .project-link-gh:hover { color: var(--accent2); }
   .project-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.6; }
   .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .tag {
@@ -233,11 +255,32 @@
     padding: 0.22rem 0.65rem;
     border-radius: 2px;
   }
-  .tag-accent {
-    background: rgba(200, 240, 96, 0.08);
-    border: 1px solid rgba(200, 240, 96, 0.25);
+  .tag-prize {
+    background: rgba(200,240,96,0.08);
+    border: 1px solid rgba(200,240,96,0.28);
     color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.22rem 0.65rem;
+    border-radius: 2px;
   }
+
+  /* AI Suite sub-items (Group B) */
+  .ai-suite-intro { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.2rem; line-height: 1.6; }
+  .ai-suite-items { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.2rem; }
+  .ai-suite-item {
+    padding-left: 0.85rem;
+    border-left: 2px solid var(--border);
+  }
+  .ai-suite-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.18rem;
+  }
+  .ai-suite-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.3rem; }
 
   /* ── EXPERIENCE ── */
   .timeline { display: flex; flex-direction: column; gap: 0; }
@@ -286,7 +329,15 @@
 
   /* ── CONTACT ── */
   #contact { padding-bottom: 100px; }
-  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1px; border: 1px solid var(--border); background: var(--border); border-radius: 4px; overflow: hidden; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
   .contact-item {
     background: var(--surface);
     padding: 1.3rem 1.5rem;
@@ -298,38 +349,88 @@
   .contact-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
   .contact-value { font-size: 0.9rem; color: var(--text); word-break: break-all; }
 
-  /* CV button in contact section */
-  .cv-banner {
-    margin-top: 1.5rem;
+  /* Contact Form */
+  .contact-form-section { margin-top: 2.5rem; }
+  .contact-form-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .contact-form-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+  .contact-form-sub a { color: var(--accent2); text-decoration: none; }
+  .contact-form-sub a:hover { opacity: 0.8; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .form-group label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .form-group input,
+  .form-group textarea {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 1.2rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
+    border-radius: 2px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    transition: border-color 0.2s;
+    resize: vertical;
   }
-  .cv-banner-text { font-size: 0.9rem; color: var(--muted); }
-  .cv-banner-text strong { color: var(--text); }
-  .cv-btn {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    background: transparent;
-    color: var(--accent);
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--muted); opacity: 1; }
+  .form-group textarea { min-height: 130px; }
+  .form-submit {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent);
+    color: #0d0d0f;
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    padding: 0.6rem 1.2rem;
-    text-decoration: none;
+    padding: 0.75rem 1.6rem;
+    border: none;
     border-radius: 2px;
-    border: 1px solid var(--accent);
-    transition: background 0.2s, color 0.2s;
-    white-space: nowrap;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    align-self: flex-start;
   }
-  .cv-btn:hover { background: var(--accent); color: #0d0d0f; }
+  .form-submit:hover:not(:disabled) { opacity: 0.85; }
+  .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+  .form-message {
+    display: none;
+    font-size: 0.88rem;
+    padding: 0.75rem 1rem;
+    border-radius: 2px;
+    margin-top: 0.25rem;
+  }
+  .form-message.success {
+    background: rgba(200,240,96,0.08);
+    border: 1px solid rgba(200,240,96,0.25);
+    color: var(--accent);
+  }
+  .form-message.error {
+    background: rgba(255,80,80,0.08);
+    border: 1px solid rgba(255,80,80,0.25);
+    color: #ff8585;
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -339,6 +440,7 @@
     font-size: 0.8rem; color: var(--muted);
   }
   footer strong { color: var(--text); font-family: 'Syne', sans-serif; font-weight: 700; }
+  .footer-right { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
 
   /* ── MOBILE ── */
   @media (max-width: 620px) {
@@ -347,7 +449,14 @@
     .nav-toggle { display: flex; }
     .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
     .timeline-date { order: 2; }
-    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition-duration: 0.01ms !important; }
   }
 </style>
 </head>
@@ -371,15 +480,17 @@
 <!-- HERO -->
 <section id="hero">
   <div class="container">
-    <p class="hero-eyebrow">Computer Science Student &amp; Full-Stack Developer</p>
+    <p class="hero-eyebrow">AI &amp; Full-Stack Developer</p>
     <h1 class="hero-name">Bilal<br><span>Rauf.</span></h1>
-    <p class="hero-title">CS Sophomore · FAST-NUCES</p>
+    <p class="hero-title">CS Sophomore at FAST-NUCES &nbsp;·&nbsp; CGPA 3.53</p>
     <p class="hero-intro">
-      Building production-grade software since my first year. My work spans full-stack web development, AI algorithms, and low-level systems programming. Seeking an internship where I can contribute technically from day one.
+      I build AI-powered and full-stack applications — applied LLM products with Gemini,
+      automation pipelines, and production web apps. Placed 5th at GDGoC's Build-with-AI
+      Hackathon; seeking an internship where I can contribute technically from day one.
     </p>
-    <div class="hero-actions">
+    <div class="hero-ctas">
       <a class="hero-cta" href="#contact">Get in touch →</a>
-      <a class="hero-cta-outline" href="https://drive.google.com/file/d/1JQyoqy_gO-bCQGVcJ5k-kLuNz_GWhxZf/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
+      <a class="hero-cta-outline" href="https://drive.google.com/file/d/1RnDDAKWBylL5NqFI4ZgJ9YjWJK6gVyZ2/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
     </div>
   </div>
 </section>
@@ -391,20 +502,24 @@
     <h2 class="section-title">Technical Skills</h2>
     <div class="skills-grid">
       <div class="skill-block">
+        <h3>AI / LLM</h3>
+        <p>Gemini API, prompt engineering, RAG-style summarisation, n8n automation, classical AI — search (A*, BFS/DFS, IDDFS), CSP, propositional logic &amp; inference</p>
+      </div>
+      <div class="skill-block">
         <h3>Languages</h3>
-        <p>C++, Python, JavaScript, SQL, HTML / CSS</p>
+        <p>Python, JavaScript, C++, SQL, HTML / CSS</p>
       </div>
       <div class="skill-block">
         <h3>Frameworks &amp; Libraries</h3>
-        <p>React.js, Next.js, FastAPI, Express.js, TailwindCSS</p>
+        <p>React.js, Next.js, Express.js, FastAPI, Flask, TailwindCSS, Framer Motion</p>
       </div>
       <div class="skill-block">
         <h3>Tools &amp; Platforms</h3>
-        <p>Git, MongoDB, PostgreSQL, Firebase, Google Cloud, Oracle DB, Bash/CLI, Godot, VS Code</p>
+        <p>Git, PostgreSQL, MongoDB, Firebase, Google Cloud Run, n8n, Oracle DB, Bash / CLI</p>
       </div>
       <div class="skill-block">
         <h3>Concepts</h3>
-        <p>DSA, OOP, REST APIs, JWT Auth, RBAC, CSP / AI Algorithms, Swagger Docs</p>
+        <p>DSA, OOP, REST APIs, JWT Auth, automation pipelines, constraint satisfaction, adversarial search</p>
       </div>
     </div>
   </div>
@@ -417,31 +532,12 @@
     <h2 class="section-title">Projects</h2>
     <div class="projects-list">
 
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-name">HostelHub — Hostel Management Platform</span>
-          <div class="project-links">
-            <a class="project-link" href="https://hostel-hub-ten.vercel.app/" target="_blank" rel="noopener">hostel-hub-ten.vercel.app ↗</a>
-            <a class="project-link-gh" href="https://github.com/bilal-rauf-dev/hostel-hub" target="_blank" rel="noopener">GitHub ↗</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          Full-stack hostel management system built for university hostel communities. Includes marketplace,
-          maintenance tickets, lost &amp; found, events, community polls, guidebook, notifications, safety alerts,
-          and an admin panel. Built with a structured backend, authentication, database-driven workflows,
-          and role-based access for students and admins.
-        </p>
-        <div class="tag-list">
-          <span class="tag">Next.js</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">TailwindCSS</span>
-          <span class="tag">JWT Auth</span>
-          <span class="tag">Admin Panel</span>
-        </div>
+      <!-- ── Group A: AI & Applied LLM ── -->
+      <div class="project-group-header">
+        <span class="project-group-label">AI &amp; Applied LLM</span>
       </div>
 
+      <!-- 1. StackSense -->
       <div class="project-card">
         <div class="project-header">
           <span class="project-name">StackSense — AI Intelligence Layer</span>
@@ -451,10 +547,10 @@
           </div>
         </div>
         <p class="project-desc">
-          AI-powered dashboard for technical founders that scans a live tech stack in real time — surfacing pricing changes, deprecation notices, and cost-saving opportunities ranked by dollar impact. Features a streaming terminal feed, impact-ranked alert cards with dollar counters, draggable detail windows, inline Gemini chat, and a Cmd+K command palette. Built and placed 5th at the GDG on Campus Build with AI Hackathon 2026.
+          An AI-powered dashboard for technical founders that scans a live tech stack in real time — surfacing pricing changes, deprecation notices, and cost-saving opportunities ranked by dollar impact. Features a streaming terminal feed, impact-ranked alert cards, draggable detail windows, inline Gemini chat, and a Cmd+K command palette. Built and placed 5th at the GDG on Campus FAST NUCES 24-Hour Build with AI Hackathon.
         </p>
         <div class="tag-list">
-          <span class="tag tag-accent">🏆 5th Place — Hackathon</span>
+          <span class="tag-prize">5th Place — GDGoC AI Hackathon</span>
           <span class="tag">React 18</span>
           <span class="tag">Gemini API</span>
           <span class="tag">Streaming SSE</span>
@@ -464,60 +560,167 @@
         </div>
       </div>
 
+      <!-- 2. News Aggregator -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-name">TaskFlow — Full-Stack Task Platform</span>
+          <span class="project-name">News Aggregator — Automated Headline Pipeline</span>
+          <a class="project-link-gh" href="https://github.com/bilal-rauf-dev/news-aggregator" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <p class="project-desc">
+          An automation pipeline built in n8n that pulls headlines from BBC, The Guardian, NYT, Al Jazeera, and Dawn via RSS, deduplicates and normalises them into a common schema, stores them in PostgreSQL with URL-based uniqueness, generates a concise AI digest of the current news landscape with the Gemini API, and serves it through a Next.js frontend reading straight from the database. Demonstrates a clean, decoupled ingest → store → serve automation architecture.
+        </p>
+        <div class="tag-list">
+          <span class="tag">n8n</span>
+          <span class="tag">Gemini API</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">RSS</span>
+          <span class="tag">Automation</span>
+        </div>
+      </div>
+
+      <!-- 3. Lumina Impact AI -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Lumina Impact AI — Full-Stack AI Web App</span>
+          <div class="project-links">
+            <a class="project-link-gh" href="https://github.com/bilal-rauf-dev/lumina-impact-ai" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <p class="project-desc">
+          A polished, animated multi-page MERN application for an AI-for-social-good concept, featuring a Gemini-powered chat assistant, an Express + Mongoose REST API, and a seeded MongoDB datastore. Built during my InAmigos Foundation internship.
+        </p>
+        <div class="tag-list">
+          <span class="tag">MongoDB</span>
+          <span class="tag">Express</span>
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Gemini API</span>
+          <span class="tag">Framer Motion</span>
+        </div>
+      </div>
+
+      <!-- 4. Wumpus World -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Wumpus World — Knowledge-Based Logic Agent</span>
+          <a class="project-link-gh" href="https://github.com/bilal-rauf-cfd/wumpus-logic-agent" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <p class="project-desc">
+          A web-based knowledge-based agent (Python + Flask + JS) that explores a Wumpus-style grid using propositional logic. Implements a TELL/ASK knowledge base, an automatic CNF-conversion pipeline, and a resolution-refutation inference engine that proves cells safe before the agent moves. Includes a colour-coded GUI and a real-time inference-metrics dashboard.
+        </p>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Propositional Logic</span>
+          <span class="tag">CNF</span>
+          <span class="tag">Resolution</span>
+        </div>
+      </div>
+
+      <!-- ── Group B: Classical AI & Search Algorithms ── -->
+      <div class="project-group-header">
+        <span class="project-group-label">Classical AI &amp; Search Algorithms</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">Classical AI &amp; Search Algorithms</span>
+        </div>
+        <p class="ai-suite-intro">
+          A suite of search, constraint-satisfaction, and adversarial-search agents with interactive visualisations.
+        </p>
+        <div class="ai-suite-items">
+          <div class="ai-suite-item">
+            <div class="ai-suite-name">Sudoku CSP Solver</div>
+            <div class="ai-suite-desc">Backtracking, forward checking, and AC-3 arc consistency with solver performance metrics.</div>
+            <a class="project-link-gh" href="https://github.com/bilal-rauf-cfd/Sudoku-CSP" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <div class="ai-suite-item">
+            <div class="ai-suite-name">Tic-Tac-Toe (Minimax + Alpha-Beta)</div>
+            <div class="ai-suite-desc">Adversarial search with a Pygame visualisation of alpha/beta values and pruning cutoffs.</div>
+            <a class="project-link-gh" href="https://github.com/bilal-rauf-cfd/TicTacToe-AlphaBetaPruning" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <div class="ai-suite-item">
+            <div class="ai-suite-name">Dynamic Pathfinding Agent</div>
+            <div class="ai-suite-desc">A* and Greedy Best-First with selectable heuristics, dynamic obstacle spawning, and automatic re-planning.</div>
+            <a class="project-link-gh" href="https://github.com/bilal-rauf-cfd/Dynamic-Pathfinding-Agent" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <div class="ai-suite-item">
+            <div class="ai-suite-name">AI Pathfinder</div>
+            <div class="ai-suite-desc">Multi-algorithm visualiser: BFS, DFS, UCS, DLS, IDDFS, and bidirectional search.</div>
+            <a class="project-link-gh" href="https://github.com/bilal-rauf-cfd/AI-Pathfinder" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">Pygame</span>
+          <span class="tag">A* / CSP</span>
+          <span class="tag">Adversarial Search</span>
+        </div>
+      </div>
+
+      <!-- ── Group C: Full-Stack Engineering ── -->
+      <div class="project-group-header">
+        <span class="project-group-label">Full-Stack Engineering</span>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">HostelHub</span>
+          <div class="project-links">
+            <a class="project-link" href="https://hostel-hub-ten.vercel.app/" target="_blank" rel="noopener">hostel-hub-ten.vercel.app ↗</a>
+            <a class="project-link-gh" href="https://github.com/bilal-rauf-dev/hostel-hub" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+        <p class="project-desc">
+          A full-stack hostel community platform for students and admins, covering maintenance, marketplace, polls, events, lost &amp; found, guidebook, notifications, and safety alerts. Backed by a 15-table PostgreSQL schema written in raw SQL with role-based access, OTP verification, JWT auth, and bcrypt hashing — exposing 37 REST endpoints across 10 modules, plus stored procedures, triggers, and an explicit cursor for database-side logic.
+        </p>
+        <div class="tag-list">
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">TailwindCSS</span>
+          <span class="tag">JWT Auth</span>
+          <span class="tag">Admin Panel</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name">TaskFlow</span>
           <div class="project-links">
             <a class="project-link-gh" href="https://github.com/bilal-rauf-dev/taskflow-api" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
         <p class="project-desc">
-          Production-ready MERN-stack task management platform with JWT authentication, role-based access control (admin / user), full task CRUD, and Swagger UI API docs. Backend is architected for horizontal scaling behind a reverse proxy, with Redis and MongoDB Atlas as documented next steps. Includes a Postman collection and seed script for instant local setup.
+          A production-ready MERN task management platform with a React/Vite/Tailwind frontend and an Express/MongoDB REST API. Implements JWT authentication and role-based access control (admin vs. user), bcrypt hashing, request validation, and Swagger-documented endpoints. Mongoose models track status, priority, deadline, and ownership-based access, with rate limiting and a documented Redis caching and horizontal-scaling path for production.
         </p>
         <div class="tag-list">
           <span class="tag">Node.js</span>
           <span class="tag">Express.js</span>
           <span class="tag">MongoDB</span>
           <span class="tag">React</span>
-          <span class="tag">TailwindCSS</span>
+          <span class="tag">Vite</span>
           <span class="tag">JWT / RBAC</span>
           <span class="tag">Swagger</span>
         </div>
       </div>
 
+      <!-- Jarurat Care -->
       <div class="project-card">
         <div class="project-header">
-          <span class="project-name">Tidyline — Task &amp; Reminder App</span>
-          <div class="project-links">
-            <a class="project-link" href="https://tidyline-web.vercel.app" target="_blank" rel="noopener">tidyline-web.vercel.app ↗</a>
-          </div>
+          <span class="project-name">Jarurat Care — Hope Assistant</span>
+          <a class="project-link-gh" href="https://github.com/bilal-rauf-dev/jarurat-care-app" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
         <p class="project-desc">
-          A deployed React task manager with deadline-aware auto-sorting. Tasks are automatically
-          bucketed into Today, This Week, Month, and Later categories. Built end-to-end with
-          component-based architecture using hooks.
+          A single-file web app for a cancer-support NGO with "Hope Assistant," a Gemini-powered chatbot answering patient and caregiver FAQs and offering guidance, plus a localStorage form fallback. Built with vanilla JS and Tailwind, zero build step.
         </p>
         <div class="tag-list">
-          <span class="tag">React</span>
-          <span class="tag">Vite</span>
           <span class="tag">JavaScript</span>
-          <span class="tag">Vercel</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-name">AI Puzzle Solvers</span>
-        </div>
-        <p class="project-desc">
-          CSP solvers for Sudoku and Tic-Tac-Toe using backtracking, constraint propagation,
-          and Alpha/Beta pruning — core AI techniques used in real-world planning systems.
-          Validated algorithm generalisation across two distinct problem domains.
-        </p>
-        <div class="tag-list">
-          <span class="tag">Python</span>
-          <span class="tag">AI / CSP</span>
-          <span class="tag">Alpha-Beta Pruning</span>
+          <span class="tag">Tailwind</span>
+          <span class="tag">Gemini API</span>
         </div>
       </div>
 
@@ -533,27 +736,34 @@
     <div class="timeline">
 
       <div class="timeline-item">
-        <span class="timeline-date">Summer 2024</span>
+        <span class="timeline-date">Jun 2026 – Present</span>
         <div class="timeline-body">
-          <div class="timeline-role">SQL &amp; Database Intern</div>
-          <div class="timeline-org">Solutionsloft</div>
+          <div class="timeline-role">Cybersecurity Intern (Training Program)</div>
+          <div class="timeline-org">Cyberster</div>
           <div class="timeline-desc">
-            Assisted in developing and testing client-facing software features. Gained exposure to
-            real project workflows, version control practices, and team-based development cycles.
-            Communicated directly with team members on task requirements — demonstrating
-            responsibility, initiative, and adaptability in a professional environment.
+            Selected for Batch 2 of Cyberster's structured 3-month cybersecurity training program. Hands-on work in defensive / Blue Team fundamentals, including network traffic capture and protocol analysis with Wireshark, alongside teamwork and professional-practice exercises.
           </div>
         </div>
       </div>
 
       <div class="timeline-item">
-        <span class="timeline-date">2024</span>
+        <span class="timeline-date">Summer 2026</span>
         <div class="timeline-body">
-          <div class="timeline-role">Event Photographer &amp; Coordinator</div>
-          <div class="timeline-org">Daira University Event (Volunteer)</div>
+          <div class="timeline-role">Web Developer Intern (Remote)</div>
+          <div class="timeline-org">InAmigos Foundation</div>
           <div class="timeline-desc">
-            Managed end-to-end photography logistics for a large-scale university event,
-            coordinating with organisers and delivering edited media assets on deadline.
+            Built and deployed a full-stack MERN website for a social-good organization, integrating a Google Gemini–powered chat assistant behind a secure server-side API. Delivered structured weekly assignments end-to-end — from Figma design to deployment on Google Cloud and Firebase — against fixed deadlines.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <span class="timeline-date">Summer 2025</span>
+        <div class="timeline-body">
+          <div class="timeline-role">Intern</div>
+          <div class="timeline-org">Solutionsloft</div>
+          <div class="timeline-desc">
+            Wrote SQL queries against relational databases under senior-developer mentorship in a professional workflow, gaining exposure to industry practices and team-based development.
           </div>
         </div>
       </div>
@@ -572,7 +782,7 @@
       <div class="edu-card">
         <div class="edu-degree">BS Computer Science</div>
         <div class="edu-institution">FAST National University of Computer &amp; Emerging Sciences</div>
-        <div class="edu-meta">2024 – 2028 &nbsp;·&nbsp; CGPA 3.47 (4th Semester) &nbsp;·&nbsp; 🥉 Bronze Medal — Fall 2025</div>
+        <div class="edu-meta">2024 – 2028 &nbsp;·&nbsp; CGPA 3.53 (4th Semester) &nbsp;·&nbsp; Bronze Medal — Fall 2025</div>
       </div>
 
       <div class="edu-card">
@@ -588,7 +798,7 @@
       <div class="achievements-list">
         <div class="achievement-item">
           <span class="achievement-bullet">▸</span>
-          <span>Placed <strong style="color:var(--text)">5th</strong> at GDGoC's 24-hour AI Hackathon — collaborated under pressure to prototype a functional solution within a time-constrained environment.</span>
+          <span>Placed <strong style="color:var(--text)">5th</strong> at GDGoC's 24-hour Build-with-AI Hackathon — prototyped a functional AI product under time pressure.</span>
         </div>
         <div class="achievement-item">
           <span class="achievement-bullet">▸</span>
@@ -613,36 +823,124 @@
         <span class="contact-type">LinkedIn</span>
         <span class="contact-value">linkedin.com/in/bilal-rauf</span>
       </a>
-      <a class="contact-item" href="https://github.com/bilal-rauf" target="_blank" rel="noopener">
+      <a class="contact-item" href="https://github.com/bilal-rauf-dev" target="_blank" rel="noopener">
         <span class="contact-type">GitHub</span>
-        <span class="contact-value">github.com/bilal-rauf</span>
+        <span class="contact-value">github.com/bilal-rauf-dev</span>
       </a>
       <a class="contact-item" href="tel:+923228474148">
         <span class="contact-type">Phone</span>
         <span class="contact-value">+92 322 847 4148</span>
       </a>
     </div>
-    <div class="cv-banner">
-      <p class="cv-banner-text"><strong>Want a quick overview?</strong> Download my CV for a concise summary of my skills, projects, and experience.</p>
-      <a class="cv-btn" href="https://drive.google.com/file/d/1JQyoqy_gO-bCQGVcJ5k-kLuNz_GWhxZf/view?usp=sharing" target="_blank" rel="noopener">View CV ↗</a>
+
+    <!-- Contact Form -->
+    <!--
+      Web3Forms — no backend needed, purely client-side.
+      1. Go to https://web3forms.com and get a free access key.
+      2. Replace WEB3FORMS_ACCESS_KEY_PLACEHOLDER in the JS below with your key.
+    -->
+    <div class="contact-form-section">
+      <p class="contact-form-title">Send a message</p>
+      <p class="contact-form-sub">
+        Prefer a form? Fill this in and I'll reply to your email directly.
+        Or reach me at <a href="mailto:bilal.rauf2004@outlook.com">bilal.rauf2004@outlook.com</a>.
+      </p>
+      <form class="contact-form" id="contact-form" novalidate>
+        <!-- Honeypot field — hidden from real users, catches bots -->
+        <input type="checkbox" name="botcheck" id="botcheck"
+               style="display:none" tabindex="-1" aria-hidden="true">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="form-name">Name</label>
+            <input type="text" id="form-name" name="name"
+                   placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="form-email">Email</label>
+            <input type="email" id="form-email" name="email"
+                   placeholder="you@example.com" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="form-message-field">Message</label>
+          <textarea id="form-message-field" name="message"
+                    placeholder="What's on your mind?" required></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="form-submit-btn">Send Message →</button>
+        <div class="form-message" id="form-msg" role="alert" aria-live="polite"></div>
+      </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span><strong>Bilal Rauf</strong> — Computer Science Student &amp; Full-Stack Developer</span>
-  <div style="display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+  <span><strong>Bilal Rauf</strong> — AI &amp; Full-Stack Developer</span>
+  <div class="footer-right">
     <span>Lahore, Pakistan</span>
-    <a href="https://drive.google.com/file/d/1JQyoqy_gO-bCQGVcJ5k-kLuNz_GWhxZf/view?usp=sharing" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;">View CV ↗</a>
+    <a href="https://drive.google.com/file/d/1RnDDAKWBylL5NqFI4ZgJ9YjWJK6gVyZ2/view?usp=sharing" target="_blank" rel="noopener"
+       style="color:var(--accent2);text-decoration:none;">View CV ↗</a>
   </div>
 </footer>
 
 <script>
+  /* ── Nav toggle ── */
   const toggle = document.getElementById('nav-toggle');
   const links  = document.getElementById('nav-links');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  links.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => links.classList.remove('open'))
+  );
+
+  /* ── Contact form ── */
+  const form      = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('form-submit-btn');
+  const msgEl     = document.getElementById('form-msg');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    /* Honeypot: if the hidden checkbox is ticked, it's a bot — bail silently */
+    if (document.getElementById('botcheck').checked) return;
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Sending…';
+    msgEl.style.display   = 'none';
+    msgEl.className       = 'form-message';
+    msgEl.textContent     = '';
+
+    const payload = {
+      access_key: '28cc25bc-3fde-4f23-904e-0b814fcc4def',
+      name:    document.getElementById('form-name').value.trim(),
+      email:   document.getElementById('form-email').value.trim(),
+      message: document.getElementById('form-message-field').value.trim()
+    };
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(payload)
+      });
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        msgEl.textContent   = '✓ Message sent! I\'ll get back to you soon.';
+        msgEl.className     = 'form-message success';
+        msgEl.style.display = 'block';
+        form.reset();
+      } else {
+        throw new Error(json.message || 'Submission failed');
+      }
+    } catch (_err) {
+      msgEl.textContent   = 'Something went wrong — please email me directly at bilal.rauf2004@outlook.com';
+      msgEl.className     = 'form-message error';
+      msgEl.style.display = 'block';
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Send Message →';
+    }
+  });
 </script>
 </body>
 </html>
