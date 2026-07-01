@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bilal Rauf — AI &amp; Full-Stack Developer</title>
-<meta name="description" content="Bilal Rauf — AI &amp; Full-Stack Developer. Building applied LLM products with Gemini, automation pipelines, and production web apps. CS Sophomore at FAST-NUCES.">
+<meta name="description" content="Bilal Rauf — AI &amp; Full-Stack Developer. Building applied LLM products with Gemini, automation pipelines, and production web apps. CS Student at FAST-NUCES.">
 <meta property="og:title" content="Bilal Rauf — AI &amp; Full-Stack Developer">
 <meta property="og:description" content="Building AI-powered and full-stack applications — applied LLM products with Gemini, automation pipelines, and production web apps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bilal-rauf-dev.github.io/Bilal-Rauf/">
 <meta name="theme-color" content="#0d0d0f">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230d0d0f'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='14' font-weight='bold' fill='%23c8f060' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230d0d0f'/%3E%3Ctext x='16' y='22' font-family='sans-serif' font-size='14' font-weight='bold' fill='%23F0B45F' text-anchor='middle'%3EBR%3C/text%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -22,8 +22,8 @@
     --border:    #232328;
     --text:      #e8e8ec;
     --muted:     #7a7a8a;
-    --accent:    #c8f060;
-    --accent2:   #60d0f0;
+    --accent:    #F0B45F;
+    --accent2:   #5F9AF0;
     --tag-bg:    #1c1c22;
   }
 
@@ -47,6 +47,11 @@
     background: rgba(13,13,15,0.88);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
+	transition: height 0.4s ease; 
+  }
+  nav.shrink {
+    height: 35px;
+    background: rgba(13,13,15,0.88);
   }
   .nav-logo {
     font-family: 'Syne', sans-serif;
@@ -484,7 +489,7 @@
     <h1 class="hero-name">Bilal<br><span>Rauf.</span></h1>
     <p class="hero-title">CS Sophomore at FAST-NUCES &nbsp;·&nbsp; CGPA 3.53</p>
     <p class="hero-intro">
-      I build AI-powered and full-stack applications — applied LLM products with Gemini,
+      I build AI-powered and full-stack applications. Applied LLM products with Gemini,
       automation pipelines, and production web apps. Placed 5th at GDGoC's Build-with-AI
       Hackathon; seeking an internship where I can contribute technically from day one.
     </p>
@@ -891,6 +896,17 @@
   links.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => links.classList.remove('open'))
   );
+  
+  /* ── Nav shrink ── */
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('nav');
+    
+    if (window.scrollY > 50) {
+      navbar.classList.add('shrink');
+    } else {
+      navbar.classList.remove('shrink');
+    }
+  });
 
   /* ── Contact form ── */
   const form      = document.getElementById('contact-form');
