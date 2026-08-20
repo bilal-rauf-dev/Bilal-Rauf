@@ -343,6 +343,9 @@ section[id]:not(#hero) { scroll-margin-top: 92px; }
 }
 .row-link:hover { color: var(--accent); border-color: var(--accent); }
 .row-link.live { color: var(--text); }
+.row.on-dark:hover .row-link { color: rgba(242,240,236,0.6); }
+.row.on-dark:hover .row-link.live { color: #F2F0EC; }
+.row.on-dark:hover .row-link:hover { color: #fff; border-color: #fff; }
 
 .reveal {
   position: absolute; top: 0; right: 0; bottom: 0; width: 38%;
@@ -643,7 +646,7 @@ footer { background: var(--dark); color: var(--bg); position: relative; z-index:
   <div class="shell">
     <div class="sec-head fade">
       <h2 class="sec-title">Selected <span class="serif">work</span></h2>
-      <span class="mono">16 projects — 2024 / 2026</span>
+      <span class="mono">17 projects — 2024 / 2026</span>
     </div>
 
     <!-- Featured -->
@@ -700,10 +703,28 @@ footer { background: var(--dark); color: var(--bg); position: relative; z-index:
         </div>
       </div>
 
+
+      <div class="row on-dark">
+        <div class="reveal" aria-hidden="true" style="background:#198A63"><span class="reveal-inner" style="color:rgba(247,249,247,0.9)">two minds,<br>one system</span></div>
+        <div class="row-inner">
+          <span class="row-num">02</span>
+          <div>
+            <h3 class="row-name">Two Brain Theory</h3>
+            <p class="row-desc">A self-initiated brand and website for a fictional technology studio — built purely as a frontend and design-system exercise. Four routes in Next.js 15 and React 19, statically exported and deployed to Cloudflare Workers. The whole thing runs on a hand-built neo-brutalist system: a forest-green and coral palette, hard offset shadows, rotated and skewed background planes, dot-grid fields, bracketed monospace labels and display type at 13.8vw. Manrope and JetBrains Mono, Tailwind tokens, zero component library.</p>
+            <div class="tags">
+              <span class="tag tag-lav">Design showcase</span><span class="tag">Next.js 15</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">TailwindCSS</span><span class="tag">Cloudflare Workers</span><span class="tag">Static export</span>
+            </div>
+          </div>
+          <div class="row-links">
+            <a class="row-link live" href="https://website.twobraintheory.workers.dev/" target="_blank" rel="noopener">Live ↗</a>
+          </div>
+        </div>
+      </div>
+
       <div class="row">
         <div class="reveal" aria-hidden="true" style="background:var(--ed-lavender)"><span class="reveal-inner">auth, roles<br>and limits</span></div>
         <div class="row-inner">
-          <span class="row-num">02</span>
+          <span class="row-num">03</span>
           <div>
             <h3 class="row-name">TaskFlow</h3>
             <p class="row-desc">A production-ready MERN task platform — React/Vite/Tailwind frontend, Express/MongoDB REST API, JWT auth with admin/user RBAC, bcrypt hashing, request validation and Swagger-documented endpoints. Mongoose models track status, priority, deadline and ownership, with rate limiting and a documented Redis caching and scaling path.</p>
@@ -720,7 +741,7 @@ footer { background: var(--dark); color: var(--bg); position: relative; z-index:
       <div class="row">
         <div class="reveal" aria-hidden="true" style="background:var(--ed-blue)"><span class="reveal-inner">today, this week,<br>later</span></div>
         <div class="row-inner">
-          <span class="row-num">03</span>
+          <span class="row-num">04</span>
           <div>
             <h3 class="row-name">Tidyline</h3>
             <p class="row-desc">A deadline-first task manager that drops every task into an intuitive time-box — Today, This Week, This Month or Later — instead of a flat list. Supports multiple reminders per task and completion tracking, built as a React + Vite single-page app.</p>
@@ -738,7 +759,7 @@ footer { background: var(--dark); color: var(--bg); position: relative; z-index:
       <div class="row">
         <div class="reveal" aria-hidden="true" style="background:var(--ed-pink)"><span class="reveal-inner">zero build,<br>one file</span></div>
         <div class="row-inner">
-          <span class="row-num">04</span>
+          <span class="row-num">05</span>
           <div>
             <h3 class="row-name">Jarurat Care</h3>
             <p class="row-desc">A single-file web app for a cancer-support NGO with "Hope Assistant" — a Gemini-powered chatbot answering patient and caregiver FAQs, plus a localStorage form fallback. Vanilla JS and Tailwind, zero build step.</p>
@@ -829,34 +850,45 @@ footer { background: var(--dark); color: var(--bg); position: relative; z-index:
       </div>
     </div>
 
-    <!-- ── D — Systems & Low-Level ── -->
-    <div class="group-label"><span class="mono">D — Systems &amp; Low-Level</span></div>
-    <div class="fade">
-      <p class="group-note">Games built close to the metal — no engines, no graphics libraries, and in one case no operating system worth speaking of.</p>
+    <!-- ── D — Games & Low-Level Systems ── -->
+    <div class="group-label"><span class="mono">D — Games &amp; Low-Level Systems</span></div>
+
+    <div class="rows">
+      <div class="row on-dark">
+        <div class="reveal" aria-hidden="true" style="background:var(--dark)"><span class="reveal-inner" style="color:rgba(242,240,236,0.8)">waves, coins,<br>upgrades</span></div>
+        <div class="row-inner">
+          <span class="row-num">01</span>
+          <div>
+            <h3 class="row-name">Simply Sharp</h3>
+            <p class="row-desc">My longest-running solo project — an arcade shooter designed and built end-to-end in Construct 2's event-sheet system and exported as a static HTML5 bundle. The work here is systems design rather than framework work: enemy wave pacing, a coin economy tuned against enemy difficulty, and an in-game shop trading those coins for health, damage, fire-rate and ammunition upgrades that carry across level progression. Shipped with a service worker for offline play and deployed on Vercel. Openly still in beta — balance, mobile controls and save persistence are on a public roadmap in the README.</p>
+            <div class="tags">
+              <span class="tag tag-lav">Game design</span><span class="tag">Construct 2</span><span class="tag">HTML5</span><span class="tag">Service Worker</span><span class="tag">Economy design</span><span class="tag">Beta</span>
+            </div>
+          </div>
+          <div class="row-links">
+            <a class="row-link live" href="https://simply-sharp.vercel.app" target="_blank" rel="noopener">Play ↗</a>
+            <a class="row-link" href="https://github.com/bilal-rauf-dev/simply-sharp" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade" style="margin-top:1.75rem;">
+      <p class="group-note">And two built closer to the metal — no engines, no graphics libraries, and in one case no operating system worth speaking of.</p>
       <div class="cards">
         <article class="card">
-          <span class="mono">01</span>
+          <span class="mono">02</span>
           <h3 class="card-name">Block Breaker ASM</h3>
           <p class="card-desc">Atari Breakout written entirely in 16-bit x86 assembly — ~1,500 lines assembled with NASM into a ~3&nbsp;KB DOS .COM. Text-mode rendering through BIOS INT&nbsp;0x10, keyboard via INT&nbsp;0x16, and PC-speaker audio driven straight from the programmable interval timer. Five levels, lives and score tracking.</p>
           <div class="tags"><span class="tag">x86 Assembly</span><span class="tag">NASM</span><span class="tag">BIOS / DOS</span></div>
           <div class="card-foot"><a class="row-link" href="https://github.com/bilal-rauf-dev/block-breaker-asm" target="_blank" rel="noopener">GitHub ↗</a></div>
         </article>
         <article class="card">
-          <span class="mono">02</span>
+          <span class="mono">03</span>
           <h3 class="card-name">Bomberman C++</h3>
           <p class="card-desc">A full Bomberman clone in C++ with no graphics library — custom rendering, stamina-based movement, three bomb types (mobile, jumping, controlled), scaling enemy AI, power-ups, multi-stage progression and a local leaderboard.</p>
           <div class="tags"><span class="tag">C++</span><span class="tag">Custom renderer</span><span class="tag">77 commits</span></div>
           <div class="card-foot"><a class="row-link" href="https://github.com/bilal-rauf-dev/bomberman-cpp" target="_blank" rel="noopener">GitHub ↗</a></div>
-        </article>
-        <article class="card">
-          <span class="mono">03</span>
-          <h3 class="card-name">Simply Sharp</h3>
-          <p class="card-desc">An arcade shooter built in Construct 2 and exported as a static HTML5 bundle — enemy waves, a coin economy and an in-game shop selling health, damage, fire-rate and ammo upgrades across level progression.</p>
-          <div class="tags"><span class="tag">Construct 2</span><span class="tag">HTML5</span><span class="tag">Service Worker</span></div>
-          <div class="card-foot">
-            <a class="row-link live" href="https://simply-sharp.vercel.app" target="_blank" rel="noopener">Play ↗</a>
-            <a class="row-link" href="https://github.com/bilal-rauf-dev/simply-sharp" target="_blank" rel="noopener">GitHub ↗</a>
-          </div>
         </article>
       </div>
     </div>
@@ -890,7 +922,7 @@ footer { background: var(--dark); color: var(--bg); position: relative; z-index:
       <div class="skill">
         <span class="idx">04</span>
         <h3>Tools &amp; Platforms</h3>
-        <p>Git, PostgreSQL, MongoDB, Firebase, Google Cloud Run, n8n, Oracle DB, Bash / CLI.</p>
+        <p>Git, PostgreSQL, MongoDB, Firebase, Google Cloud Run, Cloudflare Workers, Vercel, n8n, Oracle DB, Bash / CLI.</p>
       </div>
       <div class="skill">
         <span class="idx">05</span>
