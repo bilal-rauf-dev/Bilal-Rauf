@@ -22,3 +22,47 @@ body {
   min-height: 100dvh;
   border: 0;
 }
+
+.error-page {
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  min-height: 100dvh;
+  max-width: 44rem;
+  padding: 2rem;
+  margin: 0 auto;
+  background: #f2f0ec;
+  color: #141826;
+  font: 500 1rem/1.6 Arial, sans-serif;
+}
+
+.error-page h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 0.95;
+}
+
+.error-page p {
+  max-width: 36rem;
+  margin: 0;
+}
+
+.error-eyebrow {
+  color: #24356b;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.error-page a,
+.error-page button {
+  width: fit-content;
+  padding: 0.75rem 1rem;
+  border: 1px solid #141826;
+  background: #141826;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}

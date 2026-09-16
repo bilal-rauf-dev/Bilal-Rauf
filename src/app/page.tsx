@@ -3,7 +3,7 @@ export default function Home() {
     <main className="legacy-frame-shell">
       <iframe
         className="legacy-frame"
-        src="/portfolio-baseline"
+        src="/portfolio/index.html"
         title="Bilal Rauf portfolio"
       />
     </main>
