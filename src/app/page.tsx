@@ -1,11 +1,5 @@
+import { redirect } from 'next/navigation';
+
 export default function Home() {
-  return (
-    <main className="legacy-frame-shell">
-      <iframe
-        className="legacy-frame"
-        src="/portfolio/index.html"
-        title="Bilal Rauf portfolio"
-      />
-    </main>
-  );
+  redirect('/portfolio/index.html');
 }
