@@ -18,8 +18,8 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "eslint": "latest",
+    "eslint": "^9.39.1",
     "eslint-config-next": "latest",
-    "typescript": "latest"
+    "typescript": "^5.9.3"
   }
 }
